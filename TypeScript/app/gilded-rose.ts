@@ -65,7 +65,7 @@ export class GildedRose {
               }
             }
           } else {
-            currentItem.quality = currentItem.quality - currentItem.quality;
+            currentItem.quality = 0;
           }
         } else {
           if (currentItem.quality < 50) {
