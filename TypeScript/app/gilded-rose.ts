@@ -10,6 +10,10 @@ export class Item {
   }
 }
 
+const itemType = {
+  backstage: "Backstage passes to a TAFKAL80ETC concert"
+};
+
 export class GildedRose {
   items: Array<Item>;
 
@@ -23,7 +27,7 @@ export class GildedRose {
       currentItem = this.items[i];
       if (
         currentItem.name != "Aged Brie" &&
-        currentItem.name != "Backstage passes to a TAFKAL80ETC concert"
+        currentItem.name != itemType.backstage
       ) {
         if (currentItem.quality > 0) {
           if (currentItem.name != "Sulfuras, Hand of Ragnaros") {
@@ -33,7 +37,7 @@ export class GildedRose {
       } else {
         if (currentItem.quality < 50) {
           currentItem.quality = currentItem.quality + 1;
-          if (currentItem.name == "Backstage passes to a TAFKAL80ETC concert") {
+          if (currentItem.name == itemType.backstage) {
             if (currentItem.sellIn < 11) {
               if (currentItem.quality < 50) {
                 currentItem.quality = currentItem.quality + 1;
@@ -52,7 +56,7 @@ export class GildedRose {
       }
       if (currentItem.sellIn < 0) {
         if (currentItem.name != "Aged Brie") {
-          if (currentItem.name != "Backstage passes to a TAFKAL80ETC concert") {
+          if (currentItem.name != itemType.backstage) {
             if (currentItem.quality > 0) {
               if (currentItem.name != "Sulfuras, Hand of Ragnaros") {
                 currentItem.quality = currentItem.quality - 1;
