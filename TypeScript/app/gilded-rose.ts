@@ -32,6 +32,7 @@ export class GildedRose {
         currentItem.name != itemType.backstage
       ) {
         if (currentItem.quality > 0) {
+          // apply deprecation
           if (currentItem.name != itemType.sulfuras) {
             currentItem.quality = currentItem.quality - 1;
           }
@@ -42,11 +43,13 @@ export class GildedRose {
           if (currentItem.name == itemType.backstage) {
             if (currentItem.sellIn < 11) {
               if (currentItem.quality < 50) {
+                // apply deprecation
                 currentItem.quality = currentItem.quality + 1;
               }
             }
             if (currentItem.sellIn < 6) {
               if (currentItem.quality < 50) {
+                // apply deprecation
                 currentItem.quality = currentItem.quality + 1;
               }
             }
@@ -54,6 +57,7 @@ export class GildedRose {
         }
       }
       if (currentItem.name != itemType.sulfuras) {
+        // apply sellin outdated
         currentItem.sellIn = currentItem.sellIn - 1;
       }
       if (currentItem.sellIn < 0) {
@@ -61,14 +65,17 @@ export class GildedRose {
           if (currentItem.name != itemType.backstage) {
             if (currentItem.quality > 0) {
               if (currentItem.name != itemType.sulfuras) {
+                // apply deprecation
                 currentItem.quality = currentItem.quality - 1;
               }
             }
           } else {
+            // apply deprecation
             currentItem.quality = 0;
           }
         } else {
           if (currentItem.quality < 50) {
+            // apply deprecation
             currentItem.quality = currentItem.quality + 1;
           }
         }
