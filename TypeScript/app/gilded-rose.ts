@@ -31,6 +31,30 @@ export class GildedRose {
     return currentItem.sellIn;
   };
 
+  applyDeprecationOnOutdatedItem = (currentItem: Item): number => {
+    if (currentItem.sellIn < 0) {
+        if (currentItem.name != itemType.agedBrie) {
+          if (currentItem.name != itemType.backstage) {
+            if (currentItem.quality > 0) {
+              if (currentItem.name != itemType.sulfuras) {
+                // apply deprecation
+                return currentItem.quality - 1;
+              }
+            }
+          } else {
+            // apply deprecation
+            currentItem.quality = 0;
+          }
+        } else {
+          if (currentItem.quality < 50) {
+            // apply deprecation
+            return currentItem.quality + 1;
+          }
+        }
+      }
+      return currentItem.quality;
+  }
+
   updateQuality() {
     let currentItem: Item;
     for (let i = 0; i < this.items.length; i++) {
@@ -65,26 +89,8 @@ export class GildedRose {
         }
       }
       currentItem.sellIn = this.passDay(currentItem);
-      if (currentItem.sellIn < 0) {
-        if (currentItem.name != itemType.agedBrie) {
-          if (currentItem.name != itemType.backstage) {
-            if (currentItem.quality > 0) {
-              if (currentItem.name != itemType.sulfuras) {
-                // apply deprecation
-                currentItem.quality = currentItem.quality - 1;
-              }
-            }
-          } else {
-            // apply deprecation
-            currentItem.quality = 0;
-          }
-        } else {
-          if (currentItem.quality < 50) {
-            // apply deprecation
-            currentItem.quality = currentItem.quality + 1;
-          }
-        }
-      }
+      currentItem.quality = this.applyDeprecationOnOutdatedItem(currentItem);
+  
     }
 
     return this.items;
