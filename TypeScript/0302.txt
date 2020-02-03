@@ -1,0 +1,40 @@
+Dojo GildedRose
+
+- Présenter le sujet
+- Monter les .diff
+https://github.com/amauryw/GildedRose-Refactoring-Kata
+
+https://refactoring.guru/
+
+
+
+2 possibilités
+
+- Chacun son côté
+- Tous ensemble
+
+- Intérêt:
+    - Ajouter une feature pour que cela soit simple
+
+
+Etape:
+
+(2min)
+- Lire l’énoncé
+    - GildedRoseRequirements.txt (5min en plus)
+
+(25min)
+- Le but est d’ajouter la le type “conjured’ à l’existant suivant l’énoncé
+    - Cible
+        - Définir l’objectif de la réfactorisation
+    - Analyse d’impact 
+        - Lister les parcours impacts par les changements
+    - Définir les différentes étapes de la refactorisation
+    - Définir son plan de test 
+
+    - Commencer le dev 
+
+Aller le plus loin possible 
+
+(5min) Debried
+- Have fun
