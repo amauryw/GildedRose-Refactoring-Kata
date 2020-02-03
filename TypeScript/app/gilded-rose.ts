@@ -23,6 +23,14 @@ export class GildedRose {
     this.items = items;
   }
 
+  passDay = (currentItem: Item): number => {
+    if (currentItem.name != itemType.sulfuras) {
+      // apply sellin outdated
+      return currentItem.sellIn - 1;
+    }
+    return currentItem.sellIn;
+  };
+
   updateQuality() {
     let currentItem: Item;
     for (let i = 0; i < this.items.length; i++) {
@@ -56,10 +64,7 @@ export class GildedRose {
           }
         }
       }
-      if (currentItem.name != itemType.sulfuras) {
-        // apply sellin outdated
-        currentItem.sellIn = currentItem.sellIn - 1;
-      }
+      currentItem.sellIn = this.passDay(currentItem);
       if (currentItem.sellIn < 0) {
         if (currentItem.name != itemType.agedBrie) {
           if (currentItem.name != itemType.backstage) {
