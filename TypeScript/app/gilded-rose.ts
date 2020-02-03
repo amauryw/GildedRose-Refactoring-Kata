@@ -11,7 +11,8 @@ export class Item {
 }
 
 const itemType = {
-  backstage: "Backstage passes to a TAFKAL80ETC concert"
+  backstage: "Backstage passes to a TAFKAL80ETC concert",
+  agedBrie: "Aged Brie" 
 };
 
 export class GildedRose {
@@ -26,7 +27,7 @@ export class GildedRose {
     for (let i = 0; i < this.items.length; i++) {
       currentItem = this.items[i];
       if (
-        currentItem.name != "Aged Brie" &&
+        currentItem.name != itemType.agedBrie &&
         currentItem.name != itemType.backstage
       ) {
         if (currentItem.quality > 0) {
@@ -55,7 +56,7 @@ export class GildedRose {
         currentItem.sellIn = currentItem.sellIn - 1;
       }
       if (currentItem.sellIn < 0) {
-        if (currentItem.name != "Aged Brie") {
+        if (currentItem.name != itemType.agedBrie) {
           if (currentItem.name != itemType.backstage) {
             if (currentItem.quality > 0) {
               if (currentItem.name != "Sulfuras, Hand of Ragnaros") {
